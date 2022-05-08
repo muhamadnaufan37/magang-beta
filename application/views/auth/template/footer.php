@@ -27,13 +27,17 @@
                     </div>
                     <div class="col-md-3 text-white">
                         <p>Navigasi</p>
-                        <a href="#features">Beranda</a><br>
-                        <a href="#download">Program</a><br>
-                        <a href="<?php echo base_url('auth/register'); ?>">Daftar</a>
+                        <a href="#">Beranda</a><br>
+                        <a href="<?php echo base_url('auth/pengumuman'); ?>">Pengumuman</a><br>
+                        <a href="#">FAQ</a><br>
+                        <a href="#">Program</a><br>
+                        <a href="<?php echo base_url('auth/register'); ?>">Daftar</a><br>
+                        <a href="<?php echo base_url('auth/visimisi'); ?>">Privacy Policy</a><br>
+                        <a href="<?php echo base_url('auth/disclaimer'); ?>">Disclaimer</a><br>
                     </div>
                     <div class="col-md-3">
                         <p>Devaloper</p>
-                        <a target="_blank" href="<?php echo base_url('dev'); ?>" class="text-white">Novan</a>
+                        <a target="_blank" href="<?php echo base_url('dev'); ?>" class="text-white">Admin 1</a>
                     </div>
                 </div>
             </div>

@@ -160,6 +160,13 @@ class M_data extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
+	function landing()
+	{
+		$this->db->select('*');
+		$this->db->from('landing');
+		return $this->db->get()->result_array();
+	}
+
 	function hari($hari){
  
 	switch($hari){

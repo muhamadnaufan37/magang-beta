@@ -57,6 +57,33 @@ class auth extends CI_Controller {
         $this->load->view('auth/template/footer', $data);
     }
 
+    public function pengumuman()
+    {
+        $data['page_title'] ='Announcement';
+        $data['web'] = $this->db->get('web')->row_array();
+        $this->load->view('auth/template/header', $data);
+        $this->load->view('landing/pengumuman');
+        $this->load->view('auth/template/footer', $data);
+    }
+
+    public function disclaimer()
+    {
+        $data['page_title'] ='Disclaimer';
+        $data['web'] = $this->db->get('web')->row_array();
+        $this->load->view('auth/template/header', $data);
+        $this->load->view('landing/disclaimer');
+        $this->load->view('auth/template/footer', $data);
+    }
+
+    public function visimisi()
+    {
+        $data['page_title'] ='Visi & Misi';
+        $data['web'] = $this->db->get('web')->row_array();
+        $this->load->view('auth/template/header', $data);
+        $this->load->view('landing/visimisi');
+        $this->load->view('auth/template/footer', $data);
+    }
+
 
 	private function _login() {
 

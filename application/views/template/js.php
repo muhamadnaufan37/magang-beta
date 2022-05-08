@@ -58,6 +58,7 @@
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/datatable/buttons/js/buttons.html5.min.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/datatable/buttons/js/buttons.print.min.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/dropzone/dropzone.js"></script>
+        <script src="<?php echo base_url('assets/template')?>/dist/vendors/quill/quill.min.js"></script>
         <!-- END: Page Vendor JS-->
 
         <!-- START: Page JS-->
@@ -67,6 +68,7 @@
 
         <!-- START: Page Script JS-->
         <script src="<?php echo base_url('assets/template')?>/dist/js/jsgrid.script.js"></script>
+        <script src="<?php echo base_url('assets/template')?>/dist/js/mail.script.js"></script>
         <!-- END: Page Script JS-->
 
         <script>

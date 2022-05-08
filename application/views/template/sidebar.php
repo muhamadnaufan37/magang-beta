@@ -56,7 +56,10 @@
                     <li class="dropdown"><a href="#"><i class="icon-magnet mr-1"></i> UI Component</a>                  
                                          
                     </li>
-                    <li class="dropdown"><a href="#"><i class="icon-doc mr-1"></i> Pages</a>                
+                    <li class="dropdown"><a href="#"><i class="icon-doc mr-1"></i> Landing</a>
+                      <ul>
+                            <li><a href="<?php echo base_url('superadmin/pages'); ?>"><i class="icon-rocket"></i> Pages</a></li>
+                        </ul>              
                     </li>
                     <li class="dropdown"><a href="#"><i class="icon-support mr-1"></i> Extras</a>                   
                                             

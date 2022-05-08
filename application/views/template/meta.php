@@ -37,6 +37,7 @@
         <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist/vendors/jsgrid/jsgrid-theme.css" />
         <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist/vendors/datatable/css/dataTables.bootstrap4.min.css" />
         <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist/vendors/datatable/buttons/css/buttons.bootstrap4.min.css"/>
+        <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist/vendors/quill/quill.snow.css"/>
         <!-- END: Page CSS-->
 
         <!-- START: Page CSS-->   

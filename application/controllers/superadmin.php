@@ -475,6 +475,56 @@ class superadmin extends CI_Controller {
         $this->load->view('template/js');
     }
 
+    public function pages()
+    {
+        $this->load->model('M_data');
+        $data = array(
+            'landing1' => $this->M_data->landing(),
+        );
+
+        $data['page_title'] ='Pages';
+        $data['side_title'] ='APTIKA';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/page/index', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+    }
+
+    public function add_pages()
+    {
+        $this->form_validation->set_rules('judul', 'judul', 'required|trim|is_unique[landing.judul]', [
+            'is_unique' => 'Judul has already!'
+        ]);
+        // $this->form_validation->set_rules('deskripsi', 'deskripsi', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+        $data['page_title'] ='Tambah Pages';
+        $data['side_title'] ='APTIKA';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/page/add_page', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+        } else {
+            $data = [
+                'judul' => htmlspecialchars($this->input->post('judul', true)),
+                // 'deskripsi' => htmlspecialchars($this->input->post('deskripsi', true)),
+                'is_active' => 1,
+                'created_by' => htmlspecialchars($this->input->post('created_by', true))
+            ];
+            $this->db->insert('landing', $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been created!", "success");');
+            redirect('superadmin/pages');
+        }
+    }
+
     public function update_bidang()
     {
         $p = $this->input->post();
