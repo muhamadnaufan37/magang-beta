@@ -18,6 +18,11 @@ class auth extends CI_Controller {
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
+        $this->load->model('M_data');
+        $data = array(
+            'landing1' => $this->M_data->landing(),
+        );
+
     	if ($this->form_validation->run() == false) {
 		$data['page_title'] ='Magang';
         $data['web'] = $this->db->get('web')->row_array();
@@ -59,10 +64,34 @@ class auth extends CI_Controller {
 
     public function pengumuman()
     {
+        $input =  $this->input->get('id', TRUE);
+        $this->load->model('M_data');
+        $data = array(
+            'edit' => $this->db->get_where('landing', ['id'=>$input])->row_array(),
+        );
+        
         $data['page_title'] ='Announcement';
         $data['web'] = $this->db->get('web')->row_array();
+        $data['landing'] = $this->db->get('landing')->row_array();
         $this->load->view('auth/template/header', $data);
         $this->load->view('landing/pengumuman');
+        $this->load->view('auth/template/footer', $data);
+    }
+
+    public function announcement()
+    {
+        $input =  $this->input->get('id', TRUE);
+        $this->load->model('M_data');
+        $data = array(
+            'edit' => $this->db->get_where('landing', ['id'=>$input])->row_array(),
+            'landing1' => $this->M_data->landing(),
+        );
+        
+        $data['page_title'] ='Announcement';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['landing'] = $this->db->get('landing')->row_array();
+        $this->load->view('auth/template/header', $data);
+        $this->load->view('landing/pengumumanall');
         $this->load->view('auth/template/footer', $data);
     }
 

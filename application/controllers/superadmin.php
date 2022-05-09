@@ -475,6 +475,36 @@ class superadmin extends CI_Controller {
         $this->load->view('template/js');
     }
 
+    public function update_bidang()
+    {
+        $p = $this->input->post();
+            $data = [
+                'id'                    => $p['id'],
+                'kode_bidang'           => $p['kode_bidang'],
+                'nama_bidang'           => $p['nama_bidang'],
+                's_bidang'              => $p['s_bidang'],
+                'deskripsi'             => $p['deskripsi'],
+                'slot_siswa'            => $p['slot_siswa'],
+                'slot_mhs'              => $p['slot_mhs'],
+                'slot_mhs_penelitian'   => $p['slot_mhs_penelitian'],
+                'edit'                  => $p['edit'],
+            ];
+            $this->db->trans_start();
+            $this->db->update('bidang', $data,['id'=>$p['id']]);
+            $this->db->trans_complete();
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Bidang has been updated!", "success");');
+            redirect('superadmin/bidang');
+    }
+
+    public function delete_bidang($id)
+    {
+        $this->db->trans_start();
+        $this->db->delete('bidang',['id'=>$id]);
+        $this->db->trans_complete();
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Bidang has been deleted!", "success");');
+        redirect('superadmin/bidang');
+    }
+
     public function pages()
     {
         $this->load->model('M_data');
@@ -525,34 +555,54 @@ class superadmin extends CI_Controller {
         }
     }
 
-    public function update_bidang()
+    public function edit_pages()
+    {
+        $this->form_validation->set_rules('deskripsi', 'deskripsi', 'required|trim');
+        $this->form_validation->set_rules('judul', 'judul', 'required|trim|is_unique[landing.judul]', [
+            'is_unique' => 'This kode has already!'
+        ]);
+
+        $input =  $this->input->get('id', TRUE);
+        $this->load->model('M_data');
+        $data = array(
+            'edit' => $this->db->get_where('landing', ['id'=>$input])->row_array(),
+        );
+        $data['page_title'] ='Edit Pages';
+        $data['side_title'] ='APTIKA';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['landing'] = $this->db->get('landing')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/page/edit_page', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+    }
+
+    public function update_pages()
     {
         $p = $this->input->post();
             $data = [
                 'id'                    => $p['id'],
-                'kode_bidang'           => $p['kode_bidang'],
-                'nama_bidang'           => $p['nama_bidang'],
-                's_bidang'              => $p['s_bidang'],
+                'judul'                 => $p['judul'],
                 'deskripsi'             => $p['deskripsi'],
-                'slot_siswa'            => $p['slot_siswa'],
-                'slot_mhs'              => $p['slot_mhs'],
-                'slot_mhs_penelitian'   => $p['slot_mhs_penelitian'],
-                'edit'                  => $p['edit'],
+                'is_active'             => $p['is_active'],
             ];
             $this->db->trans_start();
-            $this->db->update('bidang', $data,['id'=>$p['id']]);
+            $this->db->update('landing', $data,['id'=>$p['id']]);
             $this->db->trans_complete();
-            $this->session->set_flashdata('message', 'swal("Berhasil!", "Bidang has been updated!", "success");');
-            redirect('superadmin/bidang');
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been updated!", "success");');
+            redirect('superadmin/pages');
     }
 
-    public function delete_bidang($id)
+    public function delete_pages($id)
     {
         $this->db->trans_start();
-        $this->db->delete('bidang',['id'=>$id]);
+        $this->db->delete('landing',['id'=>$id]);
         $this->db->trans_complete();
-        $this->session->set_flashdata('message', 'swal("Berhasil!", "Bidang has been deleted!", "success");');
-        redirect('superadmin/bidang');
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been deleted!", "success");');
+        redirect('superadmin/pages');
     }
 
     public function logout() {

@@ -29,8 +29,12 @@
                                             <tr>
                                               <th width="1%">No</th>
                                               <th>Title</th>
+                                              <th>Deskripsi</th>
                                               <th>Status</th>
-                                              <th>Created</th>
+                                              <th>Date Created</th>
+                                              <th>Dibuat</th>
+                                              <th>Update</th>
+                                              <th>Date</th>
                                               <th>Opsi</th>
                                               <th>Action</th>
                                             </tr>
@@ -51,10 +55,27 @@
                                                     </span>
                                                   </td>
                                                 <td><?= $landing['date_created']; ?></td>
+                                                <td><?= $landing['created_by']; ?></td>
                                                 <td>
-                                                    <!-- <a data-toggle="modal" data-target="#myModal1" class="btn btn-info btn-sm" onclick="edit(<?= $landing['id']; ?>,'<?= $landing['nama']; ?>','<?= $landing['email']; ?>','<?= $landing['v_email']; ?>','<?= $landing['telepon']; ?>','<?= $landing['role_id']; ?>','<?= $landing['is_active']; ?>','<?= $landing['jk']; ?>')"
-                                                        id="<?= $landing['id']; ?>"><span class="fa fa-edit"></span></a> -->
-                                                      <a onclick="return confirm('apakah anda yakin ingin menghapus data ini?')" href="<?=base_url('superadmin/delete_page/'.$landing['id'])?>" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></a>
+                                                    <?php if ($landing['update_by'] == '') { ?>
+                                                    <div class="badge badge-secondary">Data Tidak Ditemukan</div>
+                                                  <?php }else {
+                                                    echo $landing['update_by'];
+                                                  } ?>
+                                                </td>
+                                                <td>
+                                                    <?php if ($landing['update_in'] == '') { ?>
+                                                    <div class="badge badge-secondary">Data Tidak Ditemukan</div>
+                                                  <?php }else {
+                                                    echo $landing['update_in'];
+                                                  } ?>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-block btn-success btn-sm" href="<?=base_url('superadmin/edit_pages/?id='.$landing['id'])?>">
+                                                    <span class="fa fa-wrench">
+                                                </td>
+                                                <td>
+                                                      <a onclick="return confirm('apakah anda yakin ingin menghapus data ini?')" href="<?=base_url('superadmin/delete_pages/'.$landing['id'])?>" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></a>
                                                 </td>
                                             </tr>
                                           <?php } ?>
@@ -63,8 +84,12 @@
                                             <tr>
                                               <th width="1%">No</th>
                                               <th>Title</th>
+                                              <th>Deskripsi</th>
                                               <th>Status</th>
-                                              <th>Created</th>
+                                              <th>Date Created</th>
+                                              <th>Dibuat</th>
+                                              <th>Update</th>
+                                              <th>Date</th>
                                               <th>Opsi</th>
                                               <th>Action</th>
                                             </tr>

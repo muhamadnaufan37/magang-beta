@@ -27,16 +27,32 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <form method="post" action="<?php echo base_url('superadmin/add_pages'); ?>">
+                                        <form method="post" action="<?php echo base_url('superadmin/update_pages?id='.$landing['id']); ?>">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                <label for="id">Id Page <font color="red">(*)</font></label>
+                                                <input type="text" class="form-control" id="id" name="id" value="<?= $edit['id']; ?>" required>
+                                                </div>
+                                            </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                 <label for="judul">Judul Page <font color="red">(*)</font></label>
-                                                <input type="text" class="form-control" id="judul" name="judul" placeholder="contoh: Ini Judul" required>
+                                                <input type="text" class="form-control" id="judul" name="judul" value="<?= $edit['judul']; ?>" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div id="snow-container" class="height-350">
-                                                 <input type="text" name="deskirpsi" id="deskripsi">   
+                                                 <input type="text" name="deskirpsi" id="deskripsi" value="<?= $edit['deskripsi']; ?>">   
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                <label for="is_active">Status Pages <font color="red">(*)</font></label>
+                                                <select class="form-control" name="is_active" id="is_active">
+                                                <option value="" selected="" disabled="">--- PILIH ---</option>
+                                                    <option <?php if ($edit['is_active'] == "1") {echo 'selected'; }?> value="1">Active</option>
+                                                    <option <?php if ($edit['is_active'] == "0") {echo 'selected'; }?> value="0">Non Active</option>
+                                                </select>
                                                 </div>
                                             </div>
                                             <div class="form-row" hidden>
