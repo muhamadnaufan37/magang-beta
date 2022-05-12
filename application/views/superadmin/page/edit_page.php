@@ -31,7 +31,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                 <label for="id">Id Page <font color="red">(*)</font></label>
-                                                <input type="text" class="form-control" id="id" name="id" value="<?= $edit['id']; ?>" required>
+                                                <input type="text" class="form-control" id="id" name="id" value="<?= $edit['id']; ?>" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -40,9 +40,14 @@
                                                 <input type="text" class="form-control" id="judul" name="judul" value="<?= $edit['judul']; ?>" required>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div id="snow-container" class="height-350">
-                                                 <input type="text" name="deskirpsi" id="deskripsi" value="<?= $edit['deskripsi']; ?>">   
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label for="deskripsi">Deskripsi Page <font color="red">(*)</font></label>
+                                                        <textarea name="deskripsi" id="deskripsi" class="summernote">
+                                                            <p>
+                                                                <?= $edit['deskripsi']; ?>
+                                                            </p>
+                                                        </textarea>
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -57,11 +62,18 @@
                                             </div>
                                             <div class="form-row" hidden>
                                                 <div class="form-group col-md-12">
-                                                <label for="created_by">user id</label>
-                                                <input type="text" class="form-control" id="created_by" name="created_by" value="<?= $user['nama']; ?> | <?= $user['id']; ?>">
+                                                <label for="update_by">user id</label>
+                                                <input type="text" class="form-control" id="update_by" name="update_by" value="<?= $user['nama']; ?> | <?= $user['id']; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="form-row" hidden>
+                                                <div class="form-group col-md-12">
+                                                <label for="update_in">Time Update</label>
+                                                <input type="text" class="form-control" id="update_in" name="update_in" value="<?php echo date('d-m-Y H:i:s'); ?>" readonly>
                                                 </div>
                                             </div>
                                               <div class="card-footer">
+                                                <a type="button" href="<?php echo base_url('superadmin/pages') ?>" class="btn btn-danger">Kembali</a>
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                               </div>
                                         </form>

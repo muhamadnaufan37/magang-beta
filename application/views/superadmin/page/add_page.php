@@ -46,6 +46,7 @@
                                                 </div>
                                             </div>
                                               <div class="card-footer">
+                                                <a type="button" href="<?php echo base_url('superadmin/pages') ?>" class="btn btn-danger">Kembali</a>
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                               </div>
                                         </form>

@@ -239,7 +239,7 @@
                                         <div class="col-md-6 mt-3">
                                             <div class="card">
                                               <div class="card-header justify-content-between align-items-center">
-                                                <a style="float: right;" href="" class="btn btn-sm btn-success">Tambah data</a>
+                                                <a style="float: right;" href="<?php echo base_url('superadmin/add_notif') ?>" class="btn btn-sm btn-success">Tambah data</a>
                                                 <h4 class="card-title">Notifikasi</h4>
                                               </div>
                                               <div class="card-body">
@@ -248,23 +248,30 @@
                                                   <thead>
                                                   <tr>
                                                       <th width="1%">No</th>
+                                                      <th>Pengirim</th>
                                                       <th>Judul</th>
+                                                      <th>Level</th>
                                                       <th>Deskripsi</th>
-                                                      <th>Status</th>
-                                                      <th>Created On</th>
+                                                      <th>Tujuan</th>
+                                                      <th>Created In</th>
                                                       <th>Action</th>
                                                   </tr>
                                                   </thead>
                                                   <tbody>
-                                                  <?php $no=1; foreach($token as $user_token){ ?>
+                                                  <?php $no=1; foreach($notif1 as $notif){ ?>
                                                     <tr>
                                                     <td><?=$no++?></td>
-                                                    <td><?= $user_token['email']; ?></td>
-                                                    <td><?= $user_token['token']; ?></td>
-                                                    <td><?= date('d F Y', $user_token['date_created']); ?></td>
+                                                    <td><?= $notif['id']; ?></td>
+                                                    <td><?= $notif['judul']; ?></td>
+                                                    <td><?= $notif['level']; ?></td>
+                                                    <td><?= $notif['isi']; ?></td>
+                                                    <td><?= $notif['tujuan']; ?></td>
+                                                    <td><?= $notif['date_created']; ?></td>
                                                     <td>
-                                                          <a onclick="return confirm('apakah anda yakin ingin menghapus token ini?')" href="<?=base_url('admin/token_delete/'.$user_token['id'])?>" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></a>
-                                                    </td>
+                                                        <a class="btn btn-block btn-success btn-sm" href="<?=base_url('superadmin/edit_notif/'.$notif['id_notif'])?>">
+                                                    <span class="fa fa-wrench"></span></a>
+                                                      <a onclick="return confirm('apakah anda yakin ingin menghapus data ini?')" href="<?=base_url('superadmin/delete_notif/'.$notif['id_notif'])?>" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></a>
+                                                </td>
                                                   </tr>
                                                   <?php } ?>
                                                   </tbody>

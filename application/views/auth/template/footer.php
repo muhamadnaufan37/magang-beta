@@ -27,10 +27,10 @@
                     </div>
                     <div class="col-md-3 text-white">
                         <p>Navigasi</p>
-                        <a href="#">Beranda</a><br>
-                        <a href="<?php echo base_url('auth/pengumuman'); ?>">Pengumuman</a><br>
-                        <a href="#">FAQ</a><br>
-                        <a href="#">Program</a><br>
+                        <a href="<?php echo base_url('auth'); ?>">Beranda</a><br>
+                        <a href="<?php echo base_url('auth/announcement'); ?>">Pengumuman</a><br>
+                        <a href="<?php echo base_url('auth/faq'); ?>">FAQ</a><br>
+                        <a href="<?php echo base_url('auth/program'); ?>">Program</a><br>
                         <a href="<?php echo base_url('auth/register'); ?>">Daftar</a><br>
                         <a href="<?php echo base_url('auth/visimisi'); ?>">Privacy Policy</a><br>
                         <a href="<?php echo base_url('auth/disclaimer'); ?>">Disclaimer</a><br>

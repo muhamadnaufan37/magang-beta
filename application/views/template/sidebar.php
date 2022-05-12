@@ -36,7 +36,8 @@
                     </li>
                         
                     </li>
-                    <li class="dropdown"><a href="#"><i class="icon-layers mr-1"></i> Web Apps</a>   <ul>
+                    <li class="dropdown"><a href="#"><i class="icon-layers mr-1"></i> Web Apps</a>
+                        <ul>
                             <li class="dropdown"><a href="#"><i class="icon-people"></i>Account</a>
                                 <ul class="sub-menu">
                                     <li><a href="<?php echo base_url('superadmin/account'); ?>"><i class="icon-energy"></i> View All Account</a></li>
@@ -57,9 +58,16 @@
                                          
                     </li>
                     <li class="dropdown"><a href="#"><i class="icon-doc mr-1"></i> Landing</a>
-                      <ul>
-                            <li><a href="<?php echo base_url('superadmin/pages'); ?>"><i class="icon-rocket"></i> Pages</a></li>
-                        </ul>              
+                        <ul>
+                            <li class="dropdown"><a href="#"><i class="icon-people"></i> Pages</a>
+                                <ul class="sub-menu">
+                                    <li><a href="<?php echo base_url('superadmin/pages'); ?>"><i class="icon-energy"></i> News</a></li>
+                                    <li><a href="<?php echo base_url('superadmin/faq'); ?>"><i class="icon-energy"></i> FAQ</a></li>
+                                </ul>
+                            </li>
+                           
+                        </ul>               
+                                           
                     </li>
                     <li class="dropdown"><a href="#"><i class="icon-support mr-1"></i> Extras</a>                   
                                             

@@ -21,6 +21,7 @@ class auth extends CI_Controller {
         $this->load->model('M_data');
         $data = array(
             'landing1' => $this->M_data->landing(),
+            'faq1' => $this->M_data->faq(),
         );
 
     	if ($this->form_validation->run() == false) {
@@ -95,6 +96,20 @@ class auth extends CI_Controller {
         $this->load->view('auth/template/footer', $data);
     }
 
+    public function program()
+    {
+        $this->load->model('M_data');
+        $data = array(
+            'bidang1' => $this->M_data->bidang(),
+        );
+        
+        $data['page_title'] ='Program';
+        $data['web'] = $this->db->get('web')->row_array();
+        $this->load->view('auth/template/header', $data);
+        $this->load->view('landing/program');
+        $this->load->view('auth/template/footer', $data);
+    }
+
     public function disclaimer()
     {
         $data['page_title'] ='Disclaimer';
@@ -138,7 +153,7 @@ class auth extends CI_Controller {
                     if ($user['role_id'] == 1) {
                         redirect('superadmin');
                     } elseif ($user['role_id'] == 2) {
-                        redirect('adminkab');
+                        redirect('petugas');
                     } elseif ($user['role_id'] == 3) {
                         redirect('kabid');
                     } elseif ($user['role_id'] == 4) {

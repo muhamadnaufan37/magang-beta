@@ -27,16 +27,17 @@
         <section id="Pertanyaan" class="px-5 bg-light">
             <div class="text-center h2 mb-5 text-muted">Pertanyaan Umum</div>
             <div class="accordion container" id="accordionExample">
-                <?php for($j=0;$j<5;$j++){ ?>
+                <?php $no=1; foreach($faq1 as $faq){ ?>
                 <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading<?= $j ?>">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $j ?>" aria-expanded="true" aria-controls="collapse<?= $j ?>">
-                      Accordion Item #<?= $j ?>
+                  <h2 class="accordion-header" id="heading">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="true" aria-controls="collapse">
+                      <?= $faq['tanya']; ?>
                     </button>
                   </h2>
-                  <div id="collapse<?= $j ?>" class="accordion-collapse collapse <?php echo ($j==0)?"show":""; ?>" aria-labelledby="heading<?= $j ?>" data-bs-parent="#accordionExample">
+                  <div id="collapse" class="accordion-collapse collapse show" aria-labelledby="heading" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                        <?= $faq['jawab']; ?>
+                      <!-- <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
                     </div>
                   </div>
                 </div>

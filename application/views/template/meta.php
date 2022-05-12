@@ -26,7 +26,8 @@
         <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist/vendors/simple-line-icons/css/simple-line-icons.css">        
         <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist/vendors/flags-icon/css/flag-icon.min.css">
         <link rel="stylesheet" href="<?php echo base_url('assets/plugins/node_modules/sweetalert2')?>/dist/sweetalert2.min.css">
-        <link rel="stylesheet" href="<?php echo base_url("assets/template/dist/custom/css/custom-modal.css") ?>">         
+        <link rel="stylesheet" href="<?php echo base_url("assets/template/dist/custom/css/custom-modal.css") ?>"> 
+        <link rel="stylesheet" href="<?php echo base_url("assets/template/dist/vendors/summernote/summernote-bs4.css") ?>">        
         <!-- END Template CSS-->
 
         <!-- START: Page CSS-->

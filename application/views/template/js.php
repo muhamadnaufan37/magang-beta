@@ -42,8 +42,8 @@
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/jquery-jvectormap/jquery-jvectormap-de-merc.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/jquery-jvectormap/jquery-jvectormap-us-aea.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/apexcharts/apexcharts.min.js"></script>
-        <script  src="<?php echo base_url('assets/template')?>/dist/vendors/lineprogressbar/jquery.lineProgressbar.js"></script>
-        <script  src="<?php echo base_url('assets/template')?>/dist/vendors/lineprogressbar/jquery.barfiller.js"></script>               
+        <script src="<?php echo base_url('assets/template')?>/dist/vendors/lineprogressbar/jquery.lineProgressbar.js"></script>
+        <script src="<?php echo base_url('assets/template')?>/dist/vendors/lineprogressbar/jquery.barfiller.js"></script>               
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/jsgrid/jsgrid.min.js"></script>   
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/jsgrid/db.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/datatable/js/jquery.dataTables.min.js"></script> 
@@ -59,6 +59,7 @@
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/datatable/buttons/js/buttons.print.min.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/dropzone/dropzone.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/quill/quill.min.js"></script>
+        <script src="<?php echo base_url('assets/template')?>/dist/vendors/summernote/summernote-bs4.js"></script>
         <!-- END: Page Vendor JS-->
 
         <!-- START: Page JS-->
@@ -69,6 +70,7 @@
         <!-- START: Page Script JS-->
         <script src="<?php echo base_url('assets/template')?>/dist/js/jsgrid.script.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/js/mail.script.js"></script>
+        <script src="<?php echo base_url('assets/template')?>/dist/js/summernote.script.js"></script>
         <!-- END: Page Script JS-->
 
         <script>

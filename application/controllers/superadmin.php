@@ -24,6 +24,7 @@ class superadmin extends CI_Controller {
 			'jumlahsiswa' => $this->M_data->jumlahsiswa(),
 			'jumlahpeserta' => $this->M_data->jumlahpeserta(),
             'token' => $this->M_data->user_token(),
+            'notif1' => $this->M_data->notif(),
         );
 
 		$data['page_title'] ='Dashboard';
@@ -588,6 +589,8 @@ class superadmin extends CI_Controller {
                 'judul'                 => $p['judul'],
                 'deskripsi'             => $p['deskripsi'],
                 'is_active'             => $p['is_active'],
+                'update_in'             => $p['update_in'],
+                'update_by'             => $p['update_by'],
             ];
             $this->db->trans_start();
             $this->db->update('landing', $data,['id'=>$p['id']]);
@@ -603,6 +606,186 @@ class superadmin extends CI_Controller {
         $this->db->trans_complete();
         $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been deleted!", "success");');
         redirect('superadmin/pages');
+    }
+
+    public function add_notif()
+    {
+        $this->form_validation->set_rules('judul', 'judul', 'required|trim');
+        $this->form_validation->set_rules('isi', 'isi', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+        $data['page_title'] ='Buat Notifikasi';
+        $data['side_title'] ='APTIKA';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/notif/add', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+        } else {
+            $data = [
+                'id'            => htmlspecialchars($this->input->post('id', true)),
+                'judul'         => htmlspecialchars($this->input->post('judul', true)),
+                'level'         => htmlspecialchars($this->input->post('level', true)),
+                'isi'           => htmlspecialchars($this->input->post('isi', true)),
+                'tujuan'        => htmlspecialchars($this->input->post('tujuan', true))
+            ];
+            $this->db->insert('notif', $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been created!", "success");');
+            redirect('superadmin');
+        }
+    }
+
+    public function edit_notif($id)
+    {
+        $input =  $this->input->get('id_notif', TRUE);
+        $this->load->model('M_data');
+        $data = array(
+            'edit' => $this->db->get_where('notif', ['id_notif'=>$id])->row_array(),
+        );
+
+        $data['page_title'] ='Edit Notifikasi';
+        $data['side_title'] ='APTIKA';
+        $data['notif'] = $this->db->get('notif')->row_array();
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/notif/edit', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+    }
+
+    public function update_notif()
+    {
+        $p = $this->input->post();
+            $data = [
+                'id_notif'              => $p['id_notif'],
+                'id'                    => $p['id'],
+                'judul'                 => $p['judul'],
+                'level'                 => $p['level'],
+                'isi'                   => $p['isi'],
+                'tujuan'                => $p['tujuan'],
+            ];
+            $this->db->trans_start();
+            $this->db->update('notif', $data,['id_notif'=>$p['id_notif']]);
+            $this->db->trans_complete();
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been updated!", "success");');
+            redirect('superadmin');
+    }
+
+    public function delete_notif($id)
+    {
+        $this->db->trans_start();
+        $this->db->delete('notif',['id_notif'=>$id]);
+        $this->db->trans_complete();
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been deleted!", "success");');
+        redirect('superadmin');
+    }
+
+    public function faq()
+    {
+        $this->load->model('M_data');
+        $data = array(
+            'faq1' => $this->M_data->faq(),
+        );
+
+        $data['page_title'] ='Frequently Asked Questions';
+        $data['side_title'] ='APTIKA';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/faq/index', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+    }
+
+    public function add_faq()
+    {
+        $this->form_validation->set_rules('tanya', 'tanya', 'required|trim|is_unique[faq.tanya]', [
+            'is_unique' => 'Judul has already!'
+        ]);
+        $this->form_validation->set_rules('jawab', 'jawab', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+        $data['page_title'] ='Tambah FAQ';
+        $data['side_title'] ='APTIKA';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/faq/add_faq', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+        } else {
+            $data = [
+                'tanya' => htmlspecialchars($this->input->post('tanya', true)),
+                'jawab' => htmlspecialchars($this->input->post('jawab', true)),
+                'is_active' => 1,
+                'created_by' => htmlspecialchars($this->input->post('created_by', true))
+            ];
+            $this->db->insert('faq', $data);
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been created!", "success");');
+            redirect('superadmin/faq');
+        }
+    }
+
+    public function edit_faq()
+    {
+        $this->form_validation->set_rules('jawab', 'jawab', 'required|trim');
+        $this->form_validation->set_rules('tanya', 'tanya', 'required|trim|is_unique[faq.tanya]', [
+            'is_unique' => 'This kode has already!'
+        ]);
+
+        $input =  $this->input->get('id', TRUE);
+        $this->load->model('M_data');
+        $data = array(
+            'edit' => $this->db->get_where('faq', ['id'=>$input])->row_array(),
+        );
+        $data['page_title'] ='Edit FAQ';
+        $data['side_title'] ='APTIKA';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['faq'] = $this->db->get('faq')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/faq/edit_faq', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+    }
+
+    public function update_faq()
+    {
+        $p = $this->input->post();
+            $data = [
+                'id'                    => $p['id'],
+                'tanya'                 => $p['tanya'],
+                'jawab'                 => $p['jawab'],
+                'is_active'             => $p['is_active'],
+                'update_in'             => $p['update_in'],
+                'update_by'             => $p['update_by'],
+            ];
+            $this->db->trans_start();
+            $this->db->update('faq', $data,['id'=>$p['id']]);
+            $this->db->trans_complete();
+            $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been updated!", "success");');
+            redirect('superadmin/faq');
+    }
+
+    public function delete_faq($id)
+    {
+        $this->db->trans_start();
+        $this->db->delete('faq',['id'=>$id]);
+        $this->db->trans_complete();
+        $this->session->set_flashdata('message', 'swal("Berhasil!", "Data has been deleted!", "success");');
+        redirect('superadmin/faq');
     }
 
     public function logout() {
