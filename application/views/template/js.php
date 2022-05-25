@@ -5,7 +5,7 @@
         <!-- END: Back to top-->
 
         <script src="https://cdn.lordicon.com/lusqsztk.js"></script>
-
+        
         <!-- START: Template JS-->
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/jquery/jquery-3.3.1.min.js"></script>
         <script src="<?php echo base_url('assets/template')?>/dist/vendors/jquery-ui/jquery-ui.min.js"></script>

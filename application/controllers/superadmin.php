@@ -451,6 +451,26 @@ class superadmin extends CI_Controller {
         }
     }
 
+    public function view_bidang()
+    {
+        $input =  $this->input->get('id', TRUE);
+        $this->load->model('M_data');
+        $data = array(
+            'edit' => $this->db->get_where('bidang', ['id'=>$input])->row_array(),
+        );
+        $data['page_title'] ='View';
+        $data['side_title'] ='APTIKA';
+        $data['web'] = $this->db->get('web')->row_array();
+        $data['bidang'] = $this->db->get('bidang')->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('template/meta', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('superadmin/bidang/view', $data);
+        $this->load->view('template/footer', $data);
+        $this->load->view('template/js');
+    }
+
     public function edit_bidang()
     {
         $this->form_validation->set_rules('nama_bidang', 'nama_bidang', 'required|trim');
@@ -462,6 +482,8 @@ class superadmin extends CI_Controller {
         $this->load->model('M_data');
         $data = array(
             'edit' => $this->db->get_where('bidang', ['id'=>$input])->row_array(),
+            'kabid1' => $this->M_data->kabid(),
+            'kadis1' => $this->M_data->kadis(),
         );
         $data['page_title'] ='Edit Bidang';
         $data['side_title'] ='APTIKA';
@@ -485,6 +507,9 @@ class superadmin extends CI_Controller {
                 'nama_bidang'           => $p['nama_bidang'],
                 's_bidang'              => $p['s_bidang'],
                 'deskripsi'             => $p['deskripsi'],
+                'tanggal_periode'       => $p['tanggal_periode'],
+                'waktu_in'              => $p['waktu_in'],
+                'waktu_out'             => $p['waktu_out'],
                 'slot_siswa'            => $p['slot_siswa'],
                 'slot_mhs'              => $p['slot_mhs'],
                 'slot_mhs_penelitian'   => $p['slot_mhs_penelitian'],

@@ -1,10 +1,10 @@
 <div class="header">
 
 <div class="header-left">
-<a href="<?php echo base_url('petugas'); ?>" class="logo">
+<a href="<?php echo base_url('ketuabidang'); ?>" class="logo">
 <img src="<?php echo base_url('assets/images/web')?>/logo2.png" alt="Logo">
 </a>
-<a href="<?php echo base_url('petugas'); ?>" class="logo logo-small">
+<a href="<?php echo base_url('ketuabidang'); ?>" class="logo logo-small">
 <img src="<?php echo base_url('assets/images/web')?>/logo1.jpg" alt="Logo" >
 </a>
 </div>
@@ -28,7 +28,7 @@
 
 <li class="nav-item dropdown noti-dropdown">
 <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-<i class="fa fa-bell"></i> <span class="badge badge-pill">3</span>
+<i class="fa fa-bell"></i> <span class="badge badge-pill"><?= $jumlahnotif; ?></span>
 </a>
 <div class="dropdown-menu notifications">
 <div class="topnav-dropdown-header">
@@ -42,7 +42,7 @@
 <a href="#">
 <div class="media d-flex">
 <span class="avatar avatar-sm flex-shrink-0">
-<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-02.jpg">
+<img class="avatar-img rounded-circle" alt="User Image" src="<?php echo base_url('assets/images/profile/') . $user['image']; ?>">
 </span>
 <div class="media-body flex-grow-1">
 <p class="noti-details"><span class="noti-title"><?= $notif['judul']; ?></span> <?= $notif['level']; ?> <span class="noti-title"><p><?= $notif['isi']; ?></p></span></p>
@@ -96,7 +96,7 @@
 <?php } ?></p>
 </div>
 </div>
-<a class="dropdown-item" href="<?php echo base_url('petugas/profile'); ?>">My Profile</a>
+<a class="dropdown-item" href="<?php echo base_url('ketuabidang/profile'); ?>">My Profile</a>
 <a class="dropdown-item" href="general.html">Account Settings</a>
 <a class="dropdown-item" href="<?php echo base_url('auth/logout'); ?>">Logout</a>
 </div>

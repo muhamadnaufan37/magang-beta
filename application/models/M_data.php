@@ -166,6 +166,13 @@ class M_data extends CI_Model {
 		$this->db->from('notif');
 		return $this->db->get()->result_array();
 	}
+	
+	function jumlahnotif()
+	{
+		$this->db->select('*');
+		$this->db->from('notif');
+		return $this->db->get()->num_rows();
+	}
 
 	function landing()
 	{
@@ -178,6 +185,43 @@ class M_data extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('faq');
+		return $this->db->get()->result_array();
+	}
+
+	function prov()
+	{
+		$this->db->select('*');
+		$this->db->from('lokas');
+		$this->db->where('prov');
+		return $this->db->get()->result_array();
+	}
+
+	function pt()
+	{
+		$this->db->select('*');
+		$this->db->from('pt');
+		$this->db->where('s_pt','Aktif');
+		return $this->db->get()->result_array();
+	}
+
+	function tanggal()
+	{
+		$this->db->select('*');
+		$this->db->from('tanggal');
+		return $this->db->get()->result_array();
+	}
+
+	function bulan11()
+	{
+		$this->db->select('*');
+		$this->db->from('bulan');
+		return $this->db->get()->result_array();
+	}
+
+	function tahun()
+	{
+		$this->db->select('*');
+		$this->db->from('tahun');
 		return $this->db->get()->result_array();
 	}
 

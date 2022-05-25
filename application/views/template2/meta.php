@@ -13,6 +13,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 <title><?php echo $page_title ?> - <?= $web['title']; ?></title>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/images/web')?>/<?= $web['image_logo'] ?>">
 
 <link rel="stylesheet" href="<?php echo base_url('assets/template/dist2')?>/css/bootstrap.min.css">

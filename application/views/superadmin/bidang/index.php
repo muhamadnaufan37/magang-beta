@@ -137,8 +137,31 @@
                     </div>
                 <!-- end modal data pribadi -->
 
+                <!-- START: Card Data-->
+                <div class="row mt-3">
+                    <div class="col-12 col-sm-12">
+                        <div class="row mb-5">
+                            <?php $no=1; foreach($bidang1 as $bidang){ ?>
+                                <div class="col-12 col-sm-6 col-xl-4 mb-4">
+                                    <div class="card redial-border-light redial-shadow">
+                                        <img class="img-fluid rounded-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hQ1ag8qoAGkwBf5QqiJn4iWdsXPt-qdTiA&usqp=CAU" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?= $bidang['nama_bidang']; ?></h5>    
+                                            <?= $bidang['deskripsi']; ?>
+                                            <div class="clearfix"></div>
+                                            <a href="<?php echo base_url('superadmin/view_bidang/?id='.$bidang['id'])?>" class="btn btn-primary mt-2">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- END: Card DATA-->
+
             </div>
         </main>
+
         <script>
           function modaljs(id, slot_siswa, slot_mhs, slot_mhs_penelitian){
             document.getElementById("id").value = id;

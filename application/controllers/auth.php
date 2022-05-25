@@ -155,7 +155,7 @@ class auth extends CI_Controller {
                     } elseif ($user['role_id'] == 2) {
                         redirect('petugas');
                     } elseif ($user['role_id'] == 3) {
-                        redirect('kabid');
+                        redirect('ketuabidang');
                     } elseif ($user['role_id'] == 4) {
                         redirect('kasi');
                     } elseif ($user['role_id'] == 5) {

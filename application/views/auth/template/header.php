@@ -20,6 +20,8 @@
         <title><?php echo $page_title ?> - <?= $web['title']; ?></title>
         <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/images/web')?>/<?= $web['image_logo'] ?>" />
         <!-- Bootstrap icons-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com" />
