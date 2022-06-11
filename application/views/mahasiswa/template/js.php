@@ -24,6 +24,10 @@
 	
 		<!-- Demo scripts -->
     <script src="<?php echo base_url('assets/template')?>/dist3/js/dashboard/dashboard-2.js"></script>
+
+    <!-- Datatable -->
+    <script src="<?php echo base_url('assets/template')?>/dist3/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url('assets/template')?>/dist3/js/plugins-init/datatables.init.js"></script>
 	
 	<!-- Svganimation scripts -->
     <script src="<?php echo base_url('assets/template')?>/dist3/vendor/svganimation/vivus.min.js"></script>

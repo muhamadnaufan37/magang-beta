@@ -32,59 +32,124 @@
                                                 <div class="form-group col-md-6">
                                                 <label for="kode_bidang">Kode Bidang <font color="red">(*)</font></label>
                                                 <input type="text" class="form-control" id="kode_bidang" name="kode_bidang" placeholder="contoh: DISKOMINFO-01" required>
+                                                <?= form_error('kode_bidang', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                 <label for="nama_bidang">Nama Bidang <font color="red">(*)</font></label>
                                                 <input type="text" class="form-control" id="nama_bidang" name="nama_bidang" placeholder="Masukan Nama Bidang" required>
+                                                <?= form_error('nama_bidang', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
                                             </div>
-                                            <!-- <div class="form-row" hidden>
-                                                <div class="form-group col-md-12">
-                                                <label for="s_bidang">Status Bidang <font color="red">(*)</font></label>
-                                                <select class="form-control" name="s_bidang" id="s_bidang">
-                                                <option value="" selected="" disabled="">--- PILIH ---</option>
-                                                    <option <?php if ($edit['s_bidang'] == "Active") {echo 'selected'; }?>>Active</option>
-                                                    <option <?php if ($edit['s_bidang'] == "Non Active") {echo 'selected'; }?>>Non Active</option>
-                                                </select>
-                                                </div>
-                                            </div> -->
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                 <label for="deskripsi">Deskripsi <font color="red">(*)</font></label>
-                                                <textarea type="text" class="form-control" id="deskripsi" name="deskripsi"></textarea>
+                                                <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" required><?= set_value('deskripsi'); ?></textarea>
+                                                <?= form_error('deskripsi', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                <label for="waktu_in">Jam Masuk Kerja <font color="red">(*)</font></label>
+                                                <input type="time" class="form-control" id="waktu_in" name="waktu_in" value="<?= set_value('waktu_in'); ?>" placeholder="Masukan Jam Masuk Kerja Sesuai Bidang Masing - Masing" required>
+                                                <?= form_error('waktu_in', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                <label for="waktu_out">Jam Pulang Kerja <font color="red">(*)</font></label>
+                                                <input type="time" class="form-control" id="waktu_out" name="waktu_out" value="<?= set_value('waktu_out'); ?>" placeholder="Masukan Pulang Kerja Sesuai Bidang Masing - Masing" required>
+                                                <?= form_error('waktu_out', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-4">
                                                 <label for="slot_siswa">Slot Siswa <font color="red">(*)</font></label>
-                                                <input type="number" class="form-control" id="slot_siswa" name="slot_siswa" placeholder="Maximal Peserta: 10" required>
+                                                <input type="number" class="form-control" id="slot_siswa" name="slot_siswa" value="<?= set_value('slot_siswa'); ?>" placeholder="Maximal Peserta: 10" required>
+                                                <?= form_error('slot_siswa', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                 <label for="slot_mhs">Slot Mahasiswa <font color="red">(*)</font></label>
-                                                <input type="number" class="form-control" id="slot_mhs" name="slot_mhs" placeholder="Maximal Peserta: 5" required>
+                                                <input type="number" class="form-control" id="slot_mhs" name="slot_mhs" value="<?= set_value('slot_mhs'); ?>" placeholder="Maximal Peserta: 5" required>
+                                                <?= form_error('slot_mhs', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                 <label for="slot_mhs_penelitian">Slot Mahasiswa Penelitian <font color="red">(*)</font></label>
-                                                <input type="number" class="form-control" id="slot_mhs_penelitian" name="slot_mhs_penelitian" placeholder="Maximal Peserta: 3" required>
+                                                <input type="number" class="form-control" id="slot_mhs_penelitian" name="slot_mhs_penelitian" value="<?= set_value('slot_mhs_penelitian'); ?>" placeholder="Maximal Peserta: 3" required>
+                                                <?= form_error('slot_mhs_penelitian', '<small class="text-danger pl-3">', '</small>'); ?>
                                                 </div>
                                             </div>
                                             <div class="form-row">
-                                                <!-- <div class="form-group col-md-6" hidden>
-                                                <label for="date_created">Tanggal Dibuat <font color="red">(*)</font></label>
-                                                <input type="text" class="form-control" id="date_created" name="date_created">
-                                                </div> -->
-                                                  <div class="form-group col-md-12">
-                                                    <label for="images[]">Foto</label>
-                                                    <div class="input-group">
-                                                      <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="images[]" name="images[]">
-                                                        <label class="custom-file-label" for="images[]">Choose file</label>
-                                                      </div>
-                                                      <div class="input-group-append">
-                                                        <span class="input-group-text">Upload</span>
-                                                      </div>
-                                                    </div>
-                                                  </div>
+                                                <div class="form-group col-md-6">
+                                                <label for="type">Type Bidang <font color="red">(*)</font></label>
+                                                <input type="text" class="form-control" id="type" name="type" value="<?= set_value('type'); ?>" placeholder="Masukan Type Bidang" required>
+                                                <?= form_error('type', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                <label for="reward">Reward Peserta <font color="red">(*)</font></label>
+                                                <input type="text" class="form-control" id="reward" name="reward" value="<?= set_value('reward'); ?>" placeholder="Masukan Reward" required>
+                                                <?= form_error('reward', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-2">
+                                                <label for="id">Nomor User <font color="red">(*)</font></label>
+                                                <select class="form-control" name="id" id="id" required>
+                                                <option value="" selected="" disabled="">--- pilih ---</option>
+                                                <?php $no=1; foreach($alluser1 as $alluser){ ?>
+                                                    <option value="<?= $alluser['id']; ?>"><?= $alluser['id']; ?> - <?= $alluser['nama']; ?></option>
+                                                <?php } ?> 
+                                                </select>
+                                                <?= form_error('id', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                <label for="nip">NIP User <font color="red">(*)</font></label>
+                                                <select class="form-control" name="nip" id="nip" required>
+                                                <option value="" selected="" disabled="">--- pilih ---</option>
+                                                <?php $no=1; foreach($alluser1 as $alluser){ ?>
+                                                    <option value="<?= $alluser['nip']; ?>"><?= $alluser['nip']; ?> - <?= $alluser['nama']; ?></option>
+                                                <?php } ?> 
+                                                </select>
+                                                <?= form_error('nip', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                <label for="nama">Nama User <font color="red">(*)</font></label>
+                                                <select class="form-control" name="nama" id="nama" required>
+                                                <option value="" selected="" disabled="">--- pilih ---</option>
+                                                <?php $no=1; foreach($alluser1 as $alluser){ ?>
+                                                    <option value="<?= $alluser['nama']; ?>"><?= $alluser['id']; ?> - <?= $alluser['nama']; ?> - <?= $alluser['nama']; ?></option>
+                                                <?php } ?> 
+                                                </select>
+                                                <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                <label for="email">Email User <font color="red">(*)</font></label>
+                                                <select class="form-control" name="email" id="email" required>
+                                                <option value="" selected="" disabled="">--- pilih ---</option>
+                                                <?php $no=1; foreach($alluser1 as $alluser){ ?>
+                                                    <option value="<?= $alluser['email']; ?>"><?= $alluser['id']; ?> - <?= $alluser['nip']; ?> - <?= $alluser['nama']; ?> - <?= $alluser['email']; ?></option>
+                                                <?php } ?> 
+                                                </select>
+                                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                <label for="telepon">Telepon User <font color="red">(*)</font></label>
+                                                <select class="form-control" name="telepon" id="telepon" required>
+                                                <option value="" selected="" disabled="">--- pilih ---</option>
+                                                <?php $no=1; foreach($alluser1 as $alluser){ ?>
+                                                    <option value="<?= $alluser['telepon']; ?>"><?= $alluser['id']; ?> - <?= $alluser['nip']; ?> - <?= $alluser['nama']; ?> - <?= $alluser['email']; ?> - <?= $alluser['telepon']; ?></option>
+                                                <?php } ?> 
+                                                </select>
+                                                <?= form_error('telepon', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                <label for="role_id">Level User <font color="red">(*)</font></label>
+                                                <input type="text" class="form-control" id="role_id" name="role_id" value="3" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label for="images[]">Foto</label><p>
+                                                        <input type="file" id="images[]" name="images[]" multiple required />
+                                                    <?= form_error('images[]', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                </div>
                                             </div>
                                             <div class="form-row" hidden>
                                                 <div class="form-group col-md-12">

@@ -11,6 +11,14 @@ class M_data extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 
+	function alluserid()
+	{
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where('id', $this->session->userdata('id'));
+		return $this->db->get()->result_array();
+	}
+
 	function banned()
 	{
 		$this->db->select('*');
@@ -91,6 +99,13 @@ class M_data extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 	
+	function ketua()
+	{
+		$this->db->select('*');
+		$this->db->from('ketua');
+		return $this->db->get()->result_array();
+	}
+	
 	function jumlahuser()
 	{
 		$this->db->select('*');
@@ -146,10 +161,126 @@ class M_data extends CI_Model {
 		return $this->db->get()->result_array();
 	}
 	
-	function callcenter()
+	function alltiket()
 	{
 		$this->db->select('*');
-		$this->db->from('callcenter');
+		$this->db->from('tiket');
+		return $this->db->get()->result_array();
+	}
+	
+	function user_tiket()
+	{
+		$this->db->select('*');
+		$this->db->from('tiket');
+		$this->db->where('id', $this->session->userdata('id'));
+		return $this->db->get()->result_array();
+	}
+	
+	function allfile1()
+	{
+		$this->db->select('*');
+		$this->db->from('file1');
+		return $this->db->get()->result_array();
+	}
+	
+	function admin_file1()
+	{
+		$this->db->select('*');
+		$this->db->from('file1');
+		$this->db->where('status_doc','0');
+		return $this->db->get()->result_array();
+	}
+	
+	function admin_file1_pending()
+	{
+		$this->db->select('*');
+		$this->db->from('file1');
+		$this->db->where('status_doc','0');
+		return $this->db->get()->num_rows();
+	}
+	
+	function admin_file2()
+	{
+		$this->db->select('*');
+		$this->db->from('file1');
+		$this->db->where('status_doc','2');
+		return $this->db->get()->result_array();
+	}
+	
+	function admin_file2_accept()
+	{
+		$this->db->select('*');
+		$this->db->from('file1');
+		$this->db->where('status_doc','2');
+		return $this->db->get()->num_rows();
+	}
+	
+	function admin_file3()
+	{
+		$this->db->select('*');
+		$this->db->from('file1');
+		$this->db->where('status_surat','1');
+		return $this->db->get()->result_array();
+	}
+	
+	function admin_file3_cancel()
+	{
+		$this->db->select('*');
+		$this->db->from('file1');
+		$this->db->where('status_surat','1');
+		return $this->db->get()->num_rows();
+	}
+	
+	function user_file1()
+	{
+		$this->db->select('*');
+		$this->db->from('file1');
+		$this->db->where('id', $this->session->userdata('id'));
+		return $this->db->get()->result_array();
+	}
+	
+	function allfile2()
+	{
+		$this->db->select('*');
+		$this->db->from('file2');
+		return $this->db->get()->result_array();
+	}
+	
+	function user_file2()
+	{
+		$this->db->select('*');
+		$this->db->from('file2');
+		$this->db->where('id', $this->session->userdata('id'));
+		return $this->db->get()->result_array();
+	}
+	
+	function allfile3()
+	{
+		$this->db->select('*');
+		$this->db->from('file3');
+		return $this->db->get()->result_array();
+	}
+	
+	function user_file3()
+	{
+		$this->db->select('*');
+		$this->db->from('file3');
+		$this->db->where('id', $this->session->userdata('id'));
+		return $this->db->get()->result_array();
+	}
+	
+	function allpeserta()
+	{
+		$this->db->select('*');
+		$this->db->from('peserta');
+		return $this->db->get()->result_array();
+	}
+	
+	function peserta2()
+	{
+		$this->db->select('*');
+		$this->db->from('peserta');
+		$this->db->where('id', $this->session->userdata('id'));
 		return $this->db->get()->result_array();
 	}
 
@@ -185,14 +316,6 @@ class M_data extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('faq');
-		return $this->db->get()->result_array();
-	}
-
-	function prov()
-	{
-		$this->db->select('*');
-		$this->db->from('lokas');
-		$this->db->where('prov');
 		return $this->db->get()->result_array();
 	}
 

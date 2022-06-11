@@ -10,12 +10,123 @@
 							<span class="nav-text">Dashboard</span>
 						</a>
                     </li>
+                    <li class="nav-label first">Dinas Komunikasi Dan Informasi</li>
+                    <li><a class="has-arrow ai-icon" href="avascript:void()" aria-expanded="false">
+                            <i class="la la-building"></i>
+                            <span class="nav-text">Registrasi Magang</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?php echo base_url('bidang'); ?>">Tentang Magang</a></li>
+                            <?php if ($user['s_magang'] == '0') { ?>
+                            <li><a href="<?php echo base_url('bidang/register'); ?>">Pilih Bidang</a></li>
+                            <?php } ?>
+                            <?php if ($user['s_magang'] == '1') { ?>
+                            <li>
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Harap upload terlebih dahulu surat rekomendasi Kampus">
+                                    <a class="btn btn-block disabled" href="<?php echo base_url('bidang/register'); ?>">Pilih Bidang</a>
+                                </span>
+                            </li>
+                            <?php } ?>
+                            <?php if ($user['s_magang'] == '2') { ?>
+                            <li>
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Sesi magang sedang berlangsung">
+                                    <a class="btn btn-block disabled" href="<?php echo base_url('bidang/register'); ?>">Pilih Bidang</a>
+                                </span>
+                            </li>
+                            <?php } ?>
+                            <?php if ($user['s_magang'] == '3') { ?>
+                            <li>
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Sesi magang kamu sudah selesai">
+                                    <a class="btn btn-block disabled" href="<?php echo base_url('bidang/register'); ?>">Pilih Bidang</a>
+                                </span>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                    <li class="nav-label first">Presensi</li>
 					<li><a class="ai-icon" href="<?php echo base_url('mahasiswa/jadwal'); ?>" aria-expanded="false">
 							<i class="la la-calendar"></i>
 							<span class="nav-text">Jadwal</span>
 						</a>
                     </li>
-					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="la la-signal"></i>
+                            <span class="nav-text">Kegiatanku</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?php echo base_url('mahasiswa/peserta'); ?>">Peserta</a></li>
+                            <li>
+                                <a class="has-arrow" href="javascript:void()" aria-expanded="false">Absensi</a>
+                                 <ul aria-expanded="false">
+                                    <li><a href="<?php echo base_url('mahasiswa/logbook'); ?>">Absensi</a></li>
+                                    <li><a href="<?php echo base_url('mahasiswa/rekap'); ?>">Rekap Absensi</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Upload Dokumen</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="<?php echo base_url('mahasiswa/doc_rek_kampus'); ?>">Surat Rekomendasi Kampus</a></li>
+                                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Laporan Akhir</a>
+                                        <ul>
+                                            <?php if ($user['s_magang'] == '0') { ?>
+                                                <li>
+                                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Kamu harus mendaftar bidang terlebih dahulu">
+                                                        <a class="btn btn-block disabled" href="<?php echo base_url('mahasiswa/doc_program'); ?>">Program</a>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Kamu harus mendaftar bidang terlebih dahulu">
+                                                        <a class="btn btn-block disabled" href="<?php echo base_url('mahasiswa/doc_program'); ?>">Program</a>
+                                                    </span>
+                                                </li>
+                                            <?php } ?>
+                                            <?php if ($user['s_magang'] == '1') { ?>
+                                                <li>
+                                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Kamu harus mendaftar bidang terlebih dahulu">
+                                                        <a class="btn btn-block disabled" href="<?php echo base_url('mahasiswa/doc_program'); ?>">Program</a>
+                                                    </span></li>
+                                                <li>
+                                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Kamu harus mendaftar bidang terlebih dahulu">
+                                                        <a class="btn btn-block disabled" href="<?php echo base_url('mahasiswa/doc_laporan'); ?>">Laporan</a>
+                                                    </span></li>
+                                            <?php } ?>
+                                            <?php if ($user['s_magang'] == '2') { ?>
+                                                <li><a href="<?php echo base_url('mahasiswa/doc_program'); ?>">Program</a></li>
+                                                <li><a href="<?php echo base_url('mahasiswa/doc_laporan'); ?>">Laporan</a></li>
+                                            <?php } ?>
+                                            <?php if ($user['s_magang'] == '3') { ?>
+                                                <li><a href="<?php echo base_url('mahasiswa/doc_program'); ?>">Program</a></li>
+                                                <li><a href="<?php echo base_url('mahasiswa/doc_laporan'); ?>">Laporan</a></li>
+                                            <?php } ?>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="<?php echo base_url('mahasiswa/survey'); ?>">Penilaian Mingguan</a></li>
+                            <?php if ($user['s_magang'] == '3') { ?>
+                                <li><a href="<?php echo base_url('mahasiswa/magang_selesai'); ?>"><font color="green">Unduh Rapor & E-sertifikat</font></a></li>
+                            <?php } ?>
+                            <?php if ($user['s_magang'] == '2') { ?>
+                                <li><a class="btn btn-block disabled" href="<?php echo base_url('mahasiswa/magang_selesai'); ?>">Unduh Rapor & E-sertifikat</a></li>
+                            <?php } ?>
+                            <?php if ($user['s_magang'] == '1') { ?>
+                                <li><a class="btn btn-block disabled" href="<?php echo base_url('mahasiswa/magang_selesai'); ?>">Unduh Rapor & E-sertifikat</a></li>
+                            <?php } ?>
+                            <?php if ($user['s_magang'] == '0') { ?>
+                                <li><a class="btn btn-block disabled" href="<?php echo base_url('mahasiswa/magang_selesai'); ?>">Unduh Rapor & E-sertifikat</a></li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                    <li class="nav-label first">Pusat Bantuan</li>
+                    <li><a class="has-arrow ai-icon" href="avascript:void()" aria-expanded="false">
+                            <i class="la la-bookmark"></i>
+                            <span class="nav-text">Tiket</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="<?php echo base_url('mahasiswa/list_tiket'); ?>">List Tiket</a></li>
+                            <li><a href="<?php echo base_url('mahasiswa/add_tiket'); ?>">Tambah Tiket</a></li>
+                        </ul>
+                    </li>
+					<!-- <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
 							<i class="la la-user"></i>
 							<span class="nav-text">Professors</span>
 						</a>
@@ -128,19 +239,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="la la-signal"></i>
-							<span class="nav-text">Charts</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="chart-flot.html">Flot</a></li>
-                            <li><a href="chart-morris.html">Morris</a></li>
-                            <li><a href="chart-chartjs.html">Chartjs</a></li>
-                            <li><a href="chart-chartist.html">Chartist</a></li>
-                            <li><a href="chart-sparkline.html">Sparkline</a></li>
-                            <li><a href="chart-peity.html">Peity</a></li>
-                        </ul>
-                    </li>
                     <li class="nav-label">Components</li>
                     <li class="mega-menu mega-menu-xl"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="la la-globe"></i>
@@ -225,7 +323,7 @@
                             </li>
                             <li><a href="page-lock-screen.html">Lock Screen</a></li>
                         </ul>
-                    </li>
+                    </li> -->
 				</ul>
             </div>
         </div>

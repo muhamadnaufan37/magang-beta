@@ -28,7 +28,9 @@
                                     <div class="row">
 										<div class="col-sm-3">
 											<div class="profile-photo">
-												<img src="<?php echo base_url('assets/images/profile/') . $user['image']; ?>" class="img-fluid rounded-circle" alt="">
+												<a class="avatar avatar-sm me-2">
+                                                    <img src="<?php echo base_url('assets/images/profile/') . $user['image']; ?>" class="img-fluid rounded-circle" alt="">
+                                                </a>
 											</div>
 										</div>
                                         <div class="col-sm-9 col-12">
@@ -64,32 +66,65 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- <div class="col-lg-4">
+                    <div class="col-12 col-lg-3">
                         <div class="card">
                             <div class="card-body">
+                                <h4 class="text-center">Ganti Foto Profile</h4>
+                                <li class="list-group-item text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Ganti Foto Profile">
+                                    <a style="align-content: center;" type="button" class="badge badge-primary badge-sm col-12" data-toggle="modal" data-target="#foto">
+                                      Ganti Foto
+                                    </a>
+                                </li>
+                                <!-- Modal -->
+                                <div class="modal fade" id="foto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Ganti Foto Profile</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                            <?= form_open_multipart('mahasiswa/profile'); ?>
+                                          <div class="modal-body">
+                                            <div class="form-group" hidden>
+                                                <label for="id">id</label>
+                                                <input type="text" id="id" name="id" value="<?= $user['id']; ?>" class="form-control" readonly>
+                                            </div>
+                                            <div class="form-group" hidden>
+                                                <label for="nama">Nama</label>
+                                                <input type="text" id="nama" name="nama" value="<?= $user['nama']; ?>" class="form-control" readonly>
+                                            </div>
+                                            <div class="form-group" hidden>
+                                                <label for="email">Email</label>
+                                                <input type="email" id="email" name="email" value="<?= $user['email']; ?>" class="form-control" readonly>
+                                            </div>
+                                            <div class="mb-3">
+                                              <p class="alert alert-warning">Perhatian!</p>
+                                              <p>Foto yang di upload harus <font color="red">16x16 pixel</font>, berukuran <font color="red">tidak boleh lebih dari 2mb</font></p>
+                                              <label for="image" class="form-label">Upload Yout Picture</label><br>
+                                              <input class="form-control-sm" id="image" name="image" type="file">
+                                            </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                          </div>
+                                    </div>
+                                  </div>
+                                </div>
                                 <div class="profile-statistics">
                                     <div class="text-center mt-4 border-bottom-1 pb-3">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h3 class="m-b-0">150</h3><span>Follower</span>
-                                            </div>
-                                            <div class="col">
-                                                <h3 class="m-b-0">140</h3><span>Place Stay</span>
-                                            </div>
-                                            <div class="col">
-                                                <h3 class="m-b-0">45</h3><span>Reviews</span>
-                                            </div>
-                                        </div>
-                                        <div class="mt-4">
-											<a href="javascript:void()" class="btn btn-primary px-5 mr-3 mb-4">Follow</a> 
-											<a href="javascript:void()" class="btn btn-dark px-3 mb-4">Send Message</a>
-                                        </div>
+                                        <h4 class="text-center">SCAN QRCODE</h4>
+                                            <li class="card shadow bg-light">
+                                                <img src="<?php echo site_url('mahasiswa/qrcode/') . $user['kampus'] .' - '. $user['p_studi'] .' - '. $user['nim'] .' - '. $user['nama']; ?>" class="img-fluid" alt="">
+                                            </li>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-                    <div class="col-lg-12">
+                    </div>
+                    <div class="col-lg-9">
                         <div class="card">
                             <div class="card-body">
                                 <div class="profile-tab">

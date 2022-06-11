@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="col-12 col-xl-9 mb-5 mb-xl-0">
                                 <div class="card mb-4">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hQ1ag8qoAGkwBf5QqiJn4iWdsXPt-qdTiA&usqp=CAU" alt="" class="img-fluid rounded-top">
+                                    <img src="<?php echo base_url('assets/template/dist3')?>/images/courses/pic1.jpg" alt="" class="img-fluid rounded-top">
                                     <div class="card-body">
                                         <ul class="list-inline comment-info font-weight-bold">
                                             <li class="list-inline-item  mr-3"><i class="fa fa-user pr-1 text-primary"></i> <a href="#" class="text-primary">  <?= $edit['kode_bidang']; ?></a></li>

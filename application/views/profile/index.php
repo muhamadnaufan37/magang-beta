@@ -152,13 +152,13 @@
                                                     <input type="text" class="form-control" id="id" name="id" value="<?= $user['id']; ?>" >
                                                 </div>
 
-                                                <label for="name">Nama Lengkap</label>
+                                                <label for="nama">Nama Lengkap</label>
                                                 <div class="input-group  mb-3">
 
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text bg-transparent border-right-0" id="basic-addon1"><i class="icon-user"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="name" name="name" value="<?= $user['nama']; ?>" >
+                                                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $user['nama']; ?>" >
                                                 </div>
 
                                                 <label for="email" hidden>Email</label>
@@ -245,12 +245,12 @@
                             <div class="card-body">
                                 <?= form_open_multipart('superadmin/profile'); ?>
                                 <form class="dropzone dropzone-primary">
-                                    <label for="name" hidden>Nama Lengkap</label>
+                                    <label for="nama" hidden>Nama Lengkap</label>
                                         <div class="input-group  mb-3" readonly hidden>
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text bg-transparent border-right-0" id="basic-addon1"><i class="icon-user"></i></span>
                                             </div>
-                                            <input type="text" class="form-control" id="name" name="name" value="<?= $user['nama']; ?>" readonly hidden>
+                                            <input type="text" class="form-control" id="nama" name="nama" value="<?= $user['nama']; ?>" readonly hidden>
                                         </div>
 
                                         <label for="email" hidden>Email</label>

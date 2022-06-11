@@ -14,6 +14,14 @@
                         </ol>
                     </div>
                 </div>
+                    <?php if ($user['s_magang'] == '0') { ?>   
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                          <b>Kamu belum upload dokumen <strong>surat rekomendasi kampus</strong>. Silahkan upload dokumen yang diperlukan <strong><b>sebelum mendaftar</b></strong>. Lengkapi Dokumen </b><a href="<?php echo base_url('mahasiswa/doc_rek_kampus'); ?>"><font color="blue">Disini</font></a>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                    <?php } ?>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="alert alert-info alert-dismissible">

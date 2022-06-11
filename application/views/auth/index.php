@@ -64,32 +64,32 @@
                         <!-- Feature item-->
                         <div class="text-center">
                             <i class="bi-trophy icon-feature text-gradient d-block mb-3"></i>
-                            <h3 class="font-alt">SKILL</h3>
-                            <p class="text-muted mb-0">Kegiatan praktik di lapangan langsung membuka banyak peluang!</p>
+                            <h3 class="font-alt">Keberlanjutan karir</h3>
+                            <p class="text-muted mb-0">Peluang yang lebih besar untuk diterima sebagai karyawan di tempat magang</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <!-- Feature item-->
                         <div class="text-center">
                             <i class="bi-list-task icon-feature text-gradient d-block mb-3"></i>
-                            <h3 class="font-alt">ACTIVITY</h3>
-                            <p class="text-muted mb-0">Eksplorasi pengetahuan dan kemampuan di lapangan selama lebih dari bulan!</p>
+                            <h3 class="font-alt">Keterlibatan langsung dan mendalam</h3>
+                            <p class="text-muted mb-0">Pengalaman kerja yang berharga untuk digunakan setelah lulus dari Universitas</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <!-- Feature item-->
                         <div class="text-center">
                             <i class="bi-bar-chart icon-feature text-gradient d-block mb-3"></i>
-                            <h3 class="font-alt">PLANNING</h3>
-                            <p class="text-muted mb-0">Belajar dan memperluas jaringan di luar program studi atau kampus asal!</p>
+                            <h3 class="font-alt">Gambaran nyata dunia bekerja</h3>
+                            <p class="text-muted mb-0">Pengetahuan tentang praktik terbaik dalam Industri dan Sektor yang diminati</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <!-- Feature item-->
                         <div class="text-center">
                             <i class="bi bi-bank2 icon-feature text-gradient d-block mb-3"></i>
-                            <h3 class="font-alt">STUDENT</h3>
-                            <p class="text-muted mb-0">Menimba ilmu secara langsung dari dinas berkualitas dan terkemuka!</p>
+                            <h3 class="font-alt">Bangun dan perluas koneksi</h3>
+                            <p class="text-muted mb-0">Jaringan dan hubungan  dalam industri tempat magang</p>
                         </div>
                     </div>
                 </div>

@@ -51,12 +51,15 @@
                                                           <?php } ?>
                                                       <?php if ($bidang['s_bidang'] == '1') { ?>
                                                             <div class="col-12 badge badge-success btn-xs">Active</div>
+                                                          <?php } ?>
+                                                          <?php if ($bidang['s_bidang'] == '2') { ?>
+                                                            <div class="col-12 badge badge-secondary btn-xs">Not Actived</div>
                                                           <?php } ?> 
                                                     </span></td>
                                                 <td>
                                                     <a class="btn btn-info btn-xs" value="Lihat Detail" data-toggle="modal" data-target="#myModal" style="width: 100%"
-                                                       onclick="modaljs(<?= $bidang['id']; ?>,'<?= $bidang['slot_siswa']; ?>','<?= $bidang['slot_mhs']; ?>','<?= $bidang['slot_mhs_penelitian']; ?>')"
-                                                       id="<?= $bidang['id']; ?>" >
+                                                       onclick="modaljs(<?= $bidang['id_bidang']; ?>,'<?= $bidang['slot_siswa']; ?>','<?= $bidang['slot_mhs']; ?>','<?= $bidang['slot_mhs_penelitian']; ?>')"
+                                                       id="<?= $bidang['id_bidang']; ?>" >
                                                           <font color="white">Lihat Detail</font>
                                                       </a>
                                                 </td>
@@ -68,11 +71,11 @@
                                                       } ?>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-block btn-success btn-sm" href="<?php echo base_url('superadmin/edit_bidang/?id='.$bidang['id'])?>">
+                                                    <a class="btn btn-block btn-success btn-sm" href="<?php echo base_url('superadmin/edit_bidang/?id_bidang='.$bidang['id_bidang'])?>">
                                                     <span class="fa fa-wrench">
                                                 </td>
                                                 <td>
-                                                    <a onclick="return confirm('apakah anda yakin ingin menghapus data ini?')" class="btn btn-block btn-danger btn-sm" href="<?=base_url('superadmin/delete_bidang/'.$bidang['id'])?>">
+                                                    <a onclick="return confirm('apakah anda yakin ingin menghapus data ini?')" class="btn btn-block btn-danger btn-sm" href="<?=base_url('superadmin/delete_bidang/'.$bidang['id_bidang'])?>">
                                                     <span class="fa fa-trash">
                                                 </td>
                                             </tr>
@@ -114,8 +117,8 @@
                                 <form>
                                     <div class="modal-body">
                                         <div class="form-group" hidden>
-                                            <label>Id</label>
-                                            <input type="id" name="id" id="id" class="form-control" readonly>
+                                            <label>Id Bidang</label>
+                                            <input type="id" name="id_bidang" id="id_bidang" class="form-control" readonly>
                                           </div>
                                         <div class="form-group">
                                             <label>Slot siswa</label>
@@ -144,12 +147,12 @@
                             <?php $no=1; foreach($bidang1 as $bidang){ ?>
                                 <div class="col-12 col-sm-6 col-xl-4 mb-4">
                                     <div class="card redial-border-light redial-shadow">
-                                        <img class="img-fluid rounded-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_hQ1ag8qoAGkwBf5QqiJn4iWdsXPt-qdTiA&usqp=CAU" alt="">
+                                        <img class="img-fluid rounded-top" src="<?php echo base_url('assets/template/dist3')?>/images/courses/pic1.jpg" alt="">
                                         <div class="card-body">
                                             <h5 class="card-title"><?= $bidang['nama_bidang']; ?></h5>    
                                             <?= $bidang['deskripsi']; ?>
                                             <div class="clearfix"></div>
-                                            <a href="<?php echo base_url('superadmin/view_bidang/?id='.$bidang['id'])?>" class="btn btn-primary mt-2">Read More</a>
+                                            <a href="<?php echo base_url('superadmin/view_bidang/?id='.$bidang['id_bidang'])?>" class="btn btn-primary mt-2">Read More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -163,8 +166,8 @@
         </main>
 
         <script>
-          function modaljs(id, slot_siswa, slot_mhs, slot_mhs_penelitian){
-            document.getElementById("id").value = id;
+          function modaljs(id_bidang, slot_siswa, slot_mhs, slot_mhs_penelitian){
+            document.getElementById("id_bidang").value = id_bidang;
             document.getElementById("slot_siswa").value = slot_siswa;
             document.getElementById("slot_mhs").value = slot_mhs;
             document.getElementById("slot_mhs_penelitian").value = slot_mhs_penelitian;

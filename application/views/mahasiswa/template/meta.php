@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist3/vendor/jqvmap/css/jqvmap.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist3/vendor/chartist/css/chartist.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist3/vendor/fullcalendar/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="<?php echo base_url('assets/template')?>/dist3/vendor/datatables/css/jquery.dataTables.min.css">
 </head>
 <body>
 

@@ -9,7 +9,7 @@
                                 <div class="card-body shadow">
                                     <form method="post" action="<?php echo base_url('register/mahasiswa'); ?>" id="mahasiswa" style="margin-top: 100px" class="container">
                                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                          <strong>Selamat Datang</strong> Isi form dibawah ini dengan benar dan tepat.
+                                          <strong>Selamat Datang,</strong> Isi form dibawah ini dengan benar dan tepat.
                                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                         <h1 class="text-center"><b>Form Pendaftaran Peserta</b></h1><br>
@@ -21,8 +21,8 @@
                                                 <label for="keperluan" class="form-label">Keperluan</label>
                                                 <select class="selectpicker form-control form-select-lg mb-3" data-live-search="true" name="keperluan" id="keperluan" required>
                                                         <option class="text-center" value="" selected="" disabled="">--- PILIH ---</option>
-                                                        <option value="1">Magang</option>
-                                                        <option value="2">Penelitian Skripsi</option>
+                                                        <option value="Magang">Magang</option>
+                                                        <option value="Penelitian Skripsi">Penelitian Skripsi</option>
                                                     </select>
                                             </div>
 
@@ -58,20 +58,20 @@
                                                 <label for="agama" class="form-label">Agama</label>
                                                 <select class="selectpicker form-control form-select-lg mb-3" data-live-search="true" id="agama" name="agama" required>
                                                         <option class="text-center" value="" selected="" disabled="">--- PILIH ---</option>
-                                                        <option value="1">Islam</option>
-                                                        <option value="2">Protestan</option>
-                                                        <option value="3">Katolik</option>
-                                                        <option value="4">Hindu</option>
-                                                        <option value="5">Buddha</option>
-                                                        <option value="6">Khonghucu</option>
+                                                        <option value="Islam">Islam</option>
+                                                        <option value="Protestan">Protestan</option>
+                                                        <option value="Katolik">Katolik</option>
+                                                        <option value="Hindu">Hindu</option>
+                                                        <option value="Buddha">Buddha</option>
+                                                        <option value="Khonghucu">Khonghucu</option>
                                                     </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="jk" class="form-label">Jenis Kelamin</label>
                                                 <select class="selectpicker form-control form-select-lg mb-3" data-live-search="true" id="jk" name="jk" required>
                                                 <option class="text-center" value="" selected="" disabled="">--- PILIH ---</option>
-                                                      <option value="1">Laki - Laki</option>
-                                                      <option value="0">Perempuan</option>
+                                                      <option value="Laki - Laki">Laki - Laki</option>
+                                                      <option value="Perempuan">Perempuan</option>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
